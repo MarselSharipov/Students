@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Students</string>
+
+    <string name="name">Фамилия студента</string>
+    <string name="course">Курс</string>
+
+    <string name="name_about">Фамилия студента: %s</string>
+    <string name="course_about">Курс: %s</string>
+    <string name="year_about">Год рождения: %s</string>
+
+</resources>
