@@ -7,13 +7,14 @@ import ru.unlucky.students.data.Student
 import ru.unlucky.students.databinding.ItemStudentBinding
 
 class StudentHolder private constructor(private val binding: ItemStudentBinding,
-                                        private val onItemClick: (Int) -> Unit): RecyclerView.ViewHolder(binding.root) {
+                                        private val onItemClick: (Int) -> Unit,
+                                        private val onItemDeleteClick: (Int) -> Unit): RecyclerView.ViewHolder(binding.root) {
 
     companion object {
-        fun create(parent: ViewGroup, onItemClick: (Int) -> Unit): StudentHolder {
+        fun create(parent: ViewGroup, onItemClick: (Int) -> Unit, onItemDeleteClick: (Int) -> Unit): StudentHolder {
             val layoutInflater = LayoutInflater.from(parent.context)
             val binding = ItemStudentBinding.inflate(layoutInflater, parent, false)
-            return StudentHolder(binding, onItemClick)
+            return StudentHolder(binding, onItemClick, onItemDeleteClick)
         }
     }
 
@@ -24,6 +25,7 @@ class StudentHolder private constructor(private val binding: ItemStudentBinding,
     fun bind(item: Student) {
         binding.nameTextView.text = item.name
         binding.courseTextView.text = item.course
+        binding.deleteImageView.setOnClickListener { onItemDeleteClick.invoke(bindingAdapterPosition) }
     }
 
 }

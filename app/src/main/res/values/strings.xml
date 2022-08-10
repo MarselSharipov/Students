@@ -3,6 +3,10 @@
 
     <string name="name">Фамилия студента</string>
     <string name="course">Курс</string>
+    <string name="year">Год рождения</string>
+    <string name="add">Добавить</string>
+    <string name="cancel">Отменить</string>
+
 
     <string name="name_about">Фамилия студента: %s</string>
     <string name="course_about">Курс: %s</string>

@@ -9,6 +9,12 @@ interface IMainActivity: MvpView {
     fun showStudentList(studentList: List<Student>)
 
     @OneExecution
+    fun showAddStudentDialog()
+
+    @OneExecution
     fun openAboutStudent(student: Student)
+
+    @OneExecution
+    fun openAddStudent()
 
 }

@@ -3,6 +3,8 @@ package ru.unlucky.students.ui.about
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import moxy.MvpAppCompatActivity
 import moxy.ktx.moxyPresenter
 import org.koin.android.ext.android.get
@@ -34,15 +36,33 @@ class AboutActivity: MvpAppCompatActivity(), IAboutActivity {
         supportActionBar?.setDisplayShowHomeEnabled(true)
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.about, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem) =
+            when (item.itemId) {
+                R.id.item_delete -> {
+                    presenter.processDeleteClick()
+                    true
+                }
+                else -> super.onOptionsItemSelected(item)
+            }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
+    }
+
     override fun setStudent(student: Student) {
         binding.nameTextView.text = getString(R.string.name_about, student.name)
         binding.courseTextView.text = getString(R.string.course_about, student.course)
         binding.yearTextView.text = getString(R.string.year_about, student.year)
     }
 
-    override fun onSupportNavigateUp(): Boolean {
+    override fun close() {
         finish()
-        return true
     }
 
 }
