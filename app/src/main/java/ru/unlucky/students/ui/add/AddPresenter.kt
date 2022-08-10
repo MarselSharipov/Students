@@ -23,9 +23,7 @@ class AddPresenter(private val utils: Utils): MvpPresenter<IAddActivity>() {
     }
 
     fun processActionClick() {
-        val list = utils.getStudentsList()
-        list.add(Student(surname, course, year))
-        utils.saveList(list)
+        utils.addStudent(Student(surname, course, year))
         viewState.close()
     }
 

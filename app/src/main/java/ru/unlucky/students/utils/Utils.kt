@@ -54,4 +54,18 @@ class Utils(private val context: Context) {
         }
     }
 
+    // Метод для добавления нового студента
+    fun addStudent(student: Student) {
+        val studentList = getStudentsList()
+        studentList.add(student)
+        saveList(studentList)
+    }
+
+    // Метод для удаления студента
+    fun deleteStudent(student: Student) {
+        val studentList = getStudentsList()
+        studentList.remove(student)
+        saveList(studentList)
+    }
+
 }

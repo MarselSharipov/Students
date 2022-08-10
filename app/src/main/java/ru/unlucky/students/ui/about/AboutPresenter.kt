@@ -13,9 +13,7 @@ class AboutPresenter(private val utils: Utils): MvpPresenter<IAboutActivity>() {
     }
 
     fun processDeleteClick() {
-        val list = utils.getStudentsList()
-        list.remove(student)
-        utils.saveList(list)
+        utils.deleteStudent(student)
         viewState.close()
     }
 
