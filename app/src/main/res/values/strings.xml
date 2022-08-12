@@ -12,4 +12,8 @@
     <string name="course_about">Курс: %s</string>
     <string name="year_about">Год рождения: %s</string>
 
+    <string name="sort_by_surname">По фамилии</string>
+    <string name="sort_by_course">По номеру курса</string>
+    <string name="sort_by_year">По году</string>
+
 </resources>

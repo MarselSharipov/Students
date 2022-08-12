@@ -18,6 +18,24 @@ class MainPresenter(private val utils: Utils): MvpPresenter<IMainActivity>() {
         viewState.showAddStudentDialog()
     }
 
+    fun processSortBySurnameClick() {
+        val list = studentList
+        list.sortBy { it.name }
+        viewState.showStudentList(list)
+    }
+
+    fun processSortByCourseClick() {
+        val list = studentList
+        list.sortBy { it.course }
+        viewState.showStudentList(list)
+    }
+
+    fun processSortByYearClick() {
+        val list = studentList
+        list.sortBy { it.year }
+        viewState.showStudentList(list)
+    }
+
     fun processDialogActionClick(surname: String, course: String, year: String) {
         studentList.add(Student(surname, course, year))
         utils.saveList(studentList)

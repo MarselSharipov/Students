@@ -6,6 +6,21 @@
         android:id="@+id/item_add"
         android:icon="@drawable/ic_add"
         android:title="@null"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/item_sort_by_surname"
+        android:title="@string/sort_by_surname"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/item_sort_by_course"
+        android:title="@string/sort_by_course"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/item_sort_by_year"
+        android:title="@string/sort_by_year"
+        app:showAsAction="never" />
 
 </menu>

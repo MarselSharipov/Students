@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import moxy.MvpAppCompatActivity
 import moxy.ktx.moxyPresenter
 import org.koin.android.ext.android.get
@@ -37,23 +36,6 @@ class MainActivity: MvpAppCompatActivity(), IMainActivity {
         binding.recyclerView.layoutManager = layoutManager
         binding.recyclerView.adapter = adapter
         binding.fab.setOnClickListener { presenter.processFabClick() }
-
-        binding.recyclerView.addOnScrollListener(object: RecyclerView.OnScrollListener() {
-            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                super.onScrolled(recyclerView, dx, dy)
-                if (dy > 0) {
-                    // Scroll Down
-                    if (binding.fab.isShown) {
-                        binding.fab.hide()
-                    }
-                } else if (dy < 0) {
-                    // Scroll Up
-                    if (!binding.fab.isShown) {
-                        binding.fab.show()
-                    }
-                }
-            }
-        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -65,6 +47,18 @@ class MainActivity: MvpAppCompatActivity(), IMainActivity {
             when (item.itemId) {
                 R.id.item_add -> {
                     presenter.processAddClick()
+                    true
+                }
+                R.id.item_sort_by_surname -> {
+                    presenter.processSortBySurnameClick()
+                    true
+                }
+                R.id.item_sort_by_course -> {
+                    presenter.processSortByCourseClick()
+                    true
+                }
+                R.id.item_sort_by_year -> {
+                    presenter.processSortByYearClick()
                     true
                 }
                 else -> super.onOptionsItemSelected(item)
